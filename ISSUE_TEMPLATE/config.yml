@@ -1,0 +1,14 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 🌐 Ooops Studio Website
+    url: https://ooops.studio
+    about: Learn more about our work
+  - name: 📧 Support
+    url: mailto:hello@ooops.studio
+    about: Need help? Reach out to our support team
+  - name: 📚 Documentation
+    url: https://wiki.ooops.studio
+    about: Check out our docs and guides
+  - name: 📸 Instagram
+    url: https://instagram.com/madebyooops
+    about: See what we’re up to visually

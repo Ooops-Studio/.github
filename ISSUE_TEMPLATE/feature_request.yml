@@ -1,0 +1,60 @@
+name: ✨ Feature Request
+description: Suggest an idea or improvement
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Hey! 👋 Got a cool idea? We'd love to hear it!
+        
+        **Quick heads up:**
+        - Take a quick peek to see if someone already suggested this
+        - If you're not sure, maybe start a discussion first?
+  - type: textarea
+    id: description
+    attributes:
+      label: Feature Description
+      description: Tell us about the feature you would like to see
+      placeholder: What would you like to see? Spill the tea! ☕
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem / Use Case
+      description: What problem does this feature solve? What would this feature help with?
+      placeholder: |
+        - What problem are you trying to solve?
+        - What's your use case?
+        - Why is this feature needed?
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: Paint us a picture - how should this feature behave?
+      placeholder: |
+        - How would it work in your ideal world?
+        - What would the experience be like?
+        - Any must-haves or deal-breakers?
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Got mockups, examples, or other cool stuff to share?
+      placeholder: |
+        - Screenshots, mockups, or sketches
+        - Examples from other apps you love
+        - Related issues or discussions
+        - Whatever else might help us get it!
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Checklist
+      options:
+        - label: I checked if this was already suggested (promise!)
+          required: true
+        - label: I gave enough info for you to understand what I'm talking about
+          required: true

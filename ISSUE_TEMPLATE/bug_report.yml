@@ -1,0 +1,80 @@
+name: 🐛 Bug Report
+description: File a bug report to help us improve
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Hey! 👋 Found something broken? Let's fix it together!
+        
+        **Quick heads up:**
+        - Take a quick peek to see if someone already reported this
+        - Screenshots, logs, or error messages are super helpful if you have them!
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: Tell us what the bug is
+      placeholder: Describe what's happening in a few sentences...
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: Walk us through the steps to see the bug
+      placeholder: |
+        1. Go to '...'
+        2. Click on '...'
+        3. Scroll down to '...'
+        4. See error
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What did you expect to see?
+      placeholder: What should have happened instead?
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      description: What did you see instead?
+      placeholder: What actually happened? Any error messages?
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Help us understand your setup
+      placeholder: |
+        - OS: [e.g., macOS 14.0, Windows 11, Ubuntu 22.04]
+        - Browser: [e.g., Chrome 120, Firefox 121, Safari 17]
+        - Version: [e.g., 1.2.3]
+        - Device: [e.g., Desktop, iPhone 15, iPad Pro]
+    validations:
+      required: true
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots / Logs
+      description: Got screenshots or error logs? Drop them here!
+      placeholder: Drag and drop images or paste logs here...
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Any other details that might help us debug this?
+      placeholder: Any other context that might be helpful...
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Checklist
+      options:
+        - label: I checked if this bug was already reported (promise!)
+          required: true
+        - label: I included all the info you need above
+          required: true
