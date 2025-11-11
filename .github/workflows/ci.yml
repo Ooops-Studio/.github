@@ -11,10 +11,14 @@ on:
 jobs:
   detect:
     runs-on: ubuntu-latest
-    if: ${{ github.event.repository.is_template == false }}
+
+    # 🧩 Prevent running in template repositories
+    if: ${{ github.event.repository.is_template == false && !contains(github.repository, 'template') }}
+
     outputs:
       docs: ${{ steps.changes.outputs.docs }}
       pkgs: ${{ steps.changes.outputs.pkgs }}
+
     steps:
       - uses: actions/checkout@v4
         with:
@@ -32,13 +36,15 @@ jobs:
             pkgs:
               - 'packages/**'
               - '.github/**'
+
   validate:
     needs: detect
+
     # Run unless it's docs-only (docs == true AND pkgs != true)
     if: ${{ !(needs.detect.outputs.docs == 'true' && needs.detect.outputs.pkgs != 'true') }}
+
     runs-on: ubuntu-latest
     steps:
-
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
@@ -53,6 +59,14 @@ jobs:
           cache: pnpm
 
       - run: pnpm install --frozen-lockfile
+
+      # 🧩 Early exit if this is still a template repo (detects placeholder name)
+      - name: Skip if template
+        run: |
+          if grep -q "@<your-scope>/<name>" package.json; then
+            echo "Template placeholder detected — skipping validate."
+            exit 0
+          fi
 
       - name: Validate (lint, typecheck, tests, depcruise, publint, attw)
         run: pnpm -w validate

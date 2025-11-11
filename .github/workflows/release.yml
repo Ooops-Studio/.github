@@ -11,13 +11,13 @@ on:
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 permissions:
-  contents: write
-  pull-requests: write
+  contents: read
+  packages: write
 
 jobs:
   release:
     runs-on: ubuntu-latest
-    if: ${{ github.event.repository.is_template == false }}
+    if: ${{ github.event.repository.is_template == false && !contains(github.repository, 'template') }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -40,6 +40,13 @@ jobs:
 
       - name: Install deps
         run: pnpm install --frozen-lockfile
+
+      - name: Skip if template
+        run: |
+          if grep -q "@<your-scope>/<name>" package.json; then
+            echo "Template placeholder detected — skipping validate."
+            exit 0
+          fi
 
       - name: Validate
         run: pnpm -w validate
