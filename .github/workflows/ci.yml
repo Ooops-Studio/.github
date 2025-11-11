@@ -60,13 +60,14 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
-      # 🧩 Early exit if this is still a template repo (detects placeholder name)
       - name: Skip if template
+        id: skipcheck
         run: |
           if grep -q "@<your-scope>/<name>" package.json; then
-            echo "Template placeholder detected — skipping validate."
-            exit 0
+            echo "Template placeholder detected — skipping release validation."
+            echo "skip=true" >> $GITHUB_OUTPUT
           fi
 
-      - name: Validate (lint, typecheck, tests, depcruise, publint, attw)
+      - name: Validate
+        if: ${{ steps.skipcheck.outputs.skip != 'true' }}
         run: pnpm -w validate
