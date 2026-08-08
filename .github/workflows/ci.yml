@@ -1,0 +1,44 @@
+name: Community health
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+
+      - name: Validate community files
+        shell: bash
+        run: |
+          set -euo pipefail
+          required_files=(
+            CODE_OF_CONDUCT.md
+            CONTRIBUTING.md
+            ISSUE_TEMPLATE/bug_report.yml
+            ISSUE_TEMPLATE/config.yml
+            ISSUE_TEMPLATE/feature_request.yml
+            LICENSE
+            PULL_REQUEST_TEMPLATE/default.md
+            SECURITY.md
+            SUPPORT.md
+            profile/README.md
+          )
+
+          for file in "${required_files[@]}"; do
+            test -s "$file" || {
+              echo "Missing or empty community file: $file" >&2
+              exit 1
+            }
+          done
+
+          git diff --check
+          grep -Fq 'https://github.com/ooops-studio/' profile/README.md
+          grep -Fq 'https://www.npmjs.com/org/ooopsstudio' profile/README.md
