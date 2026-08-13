@@ -14,7 +14,8 @@ We are built on the idea that perfection is boring — embracing the messy, the 
 - [Ooops UI](https://github.com/ooops-studio/ooops-ui) — accessible, design-neutral UI controllers with Astro and Svelte adapters, plus portable editor contracts.
 - [Ooops Accessibility](https://github.com/ooops-studio/ooops-accessibility) — framework-neutral accessibility preferences with an Astro adapter.
 - [Ooops Analytics](https://github.com/ooops-studio/ooops-analytics) — consent-first analytics behavior with a framework-neutral core and Astro adapter.
-- [Ooops Astro Template](https://github.com/ooops-studio/ooops-astro-template) — an Astro site template for Stage CMS, including optional accessibility, analytics, preview and content modules.
+- [Ooops CMS Packages](https://github.com/ooops-studio/ooops-cms-packages) — API, Astro and Cloudflare packages for integrating sites with Ooops CMS.
+- [Ooops Astro Template](https://github.com/ooops-studio/ooops-astro-template) — an Astro site template for Ooops CMS, including optional accessibility, analytics, preview and content modules.
 - [Ooops Media Press](https://github.com/ooops-studio/ooops-media-press) — a privacy-first native macOS app for local image, SVG and video compression.
 - [Packages Monorepo Template](https://github.com/ooops-studio/ooops-packages-template) — a production-ready pnpm package monorepo starter with validation, package checks and release automation.
 
