@@ -1,11 +1,11 @@
 blank_issues_enabled: false
 contact_links:
-  - name: 🌐 Ooops Design Studio Website
+  - name: Ooops Design Studio Website
     url: https://ooops.studio
     about: Learn more about our work
-  - name: 📧 Support
+  - name: Support
     url: mailto:hello@ooops.studio
     about: Need help? Reach out to our support team
-  - name: 🔒 Security vulnerability
+  - name: Security vulnerability
     url: mailto:hello@ooops.studio
     about: Report suspected vulnerabilities privately; do not open a public issue
